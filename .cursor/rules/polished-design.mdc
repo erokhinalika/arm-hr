@@ -1,0 +1,24 @@
+# Polished Design System (React + Tailwind)
+
+Modern, dense, and operational interface for HR ARM.
+
+## Core Principles
+- **Density over decoration**: 12-13px text, tight spacing (4-16px), 32-36px row heights.
+- **Operational Shell**: Neutral grays/whites, color used only for semantic signals (Success, Warning, Danger).
+- **Linear-style patterns**: Drawer inspectors, board columns with subtle dividers, consistent button grammar.
+- **AI as Metadata**: Match percentages and reason bullets, not purple hero blocks.
+
+## Tailwind Tokens
+- `primary`: `#5460c9` (Action)
+- `surface`: `#f7f9fc` (Backgrounds)
+- `border`: `#d9e1eb` (Dividers)
+- `text`: `#162033` (Primary text)
+- `text-muted`: `#6d7a91` (Secondary text)
+
+## Component Rules
+- **Buttons**:
+  - Primary: Filled, `bg-primary text-white`.
+  - Secondary: Outline/Ghost, `border border-border text-text`.
+- **Chips**: Compact, `text-[11px] px-2 py-0.5 rounded-md border border-border bg-surface`.
+- **Tables**: Row height 32-36px, no cell borders except bottom divider.
+- **Drawers**: Fixed 360px width, right-aligned, overlay backdrop.

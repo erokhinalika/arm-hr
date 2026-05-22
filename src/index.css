@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+body {
+  @apply bg-[#f1f4f8] text-text dark:bg-[#0f172a] dark:text-slate-200 transition-colors duration-300;
+}
+
+/* Diff Highlighting */
+.diff-ins {
+  @apply bg-emerald-100 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-400 px-1 rounded-sm border-b border-emerald-300 dark:border-emerald-800 no-underline transition-colors duration-200;
+}
+
+.diff-del {
+  @apply bg-rose-50 dark:bg-rose-900/20 text-rose-400 dark:text-rose-500 line-through px-0.5 rounded-sm opacity-60 transition-opacity duration-200;
+}
+
+.diff-mod {
+  @apply bg-amber-100 dark:bg-amber-900/30 text-amber-900 dark:text-amber-400 px-1 rounded-sm border-b border-amber-300 dark:border-amber-800 no-underline transition-colors duration-200;
+}
+
+/* Tooltips for Diffs */
+[data-tooltip] {
+  @apply relative cursor-help;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-text text-white text-[10px] rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-normal max-w-[200px] w-max z-50 font-medium text-center;
+}
+
+[data-tooltip]:hover::after {
+  @apply opacity-100;
+}
+
+.diff-ins:hover, .diff-mod:hover {
+  @apply bg-primary-soft text-primary border-primary;
+}
+
+.diff-del:hover {
+  @apply opacity-100;
+}
+
+.hide-diff-highlights .diff-ins,
+.hide-diff-highlights .diff-mod {
+  @apply bg-transparent text-inherit p-0 border-0;
+}
+
+.hide-diff-highlights .diff-del {
+  @apply hidden;
+}
+
+/* Animations */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-diff-new {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Prose refinements for CV */
+.prose h4 {
+  @apply text-xs font-bold text-text-muted uppercase tracking-widest mt-6 mb-3;
+}
+
+.prose ul {
+  @apply space-y-2 list-none pl-0;
+}
+
+.prose li {
+  @apply text-sm leading-relaxed relative pl-4;
+}
+
+.prose li::before {
+  content: "•";
+  @apply absolute left-0 text-text-muted/40;
+}
+
+.cv-header {
+  @apply border-b border-border pb-4 mb-6;
+}
+
+.cv-name {
+  @apply text-lg font-bold text-text;
+}
+
+.cv-meta {
+  @apply text-xs text-text-muted break-words;
+}
+
+.cv-job {
+  @apply mb-6 last:mb-0;
+}
+
+.cv-job-desc {
+  @apply text-xs text-text-muted italic mb-2 break-words;
+}
+
+.cv-tech {
+  @apply text-[11px] text-primary font-medium mt-2 break-words;
+}
+
+/* React Datepicker Custom Styles */
+.react-datepicker {
+  @apply !font-sans !border-border dark:!border-slate-700 !bg-white dark:!bg-[#1e293b] !rounded-lg !shadow-xl;
+}
+
+.react-datepicker__header {
+  @apply !bg-white dark:!bg-[#1e293b] !border-border dark:!border-slate-700 !rounded-t-lg;
+}
+
+.react-datepicker__current-month, 
+.react-datepicker__day-name, 
+.react-datepicker-time__header {
+  @apply dark:!text-slate-200;
+}
+
+.react-datepicker__day {
+  @apply hover:!bg-primary-soft dark:hover:!bg-slate-800 dark:!text-slate-300 !rounded-md;
+}
+
+.react-datepicker__day--selected, 
+.react-datepicker__day--in-selecting-range, 
+.react-datepicker__day--in-range {
+  @apply !bg-primary !text-white !rounded-md;
+}
+
+.react-datepicker__day--keyboard-selected {
+  @apply !bg-primary/20 !text-primary !rounded-md;
+}
+
+.react-datepicker__day--outside-month {
+  @apply !text-text-muted/30 dark:!text-slate-600;
+}
+
+.react-datepicker__navigation-icon::before {
+  @apply !border-text-muted dark:!border-slate-500;
+}
+
+.react-datepicker__triangle {
+  @apply !hidden;
+}

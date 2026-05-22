@@ -1,0 +1,25 @@
+# React & Tailwind Development Rules
+
+Best practices for the HR ARM Modern prototype.
+
+## Tech Stack
+- **Framework**: React 18 (Vite)
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Utils**: `clsx`, `tailwind-merge`
+
+## Architecture
+- **Components**: Functional components with hooks. Use `src/components` for reusable UI.
+- **Pages**: Screen-level components in `src/pages`.
+- **Data**: Centralized mock data in `src/data/mock-data.ts`.
+- **State**: Use `useState` and `useMemo` for local filtering/sorting.
+
+## Tailwind Usage
+- Use `cn()` utility (clsx + tailwind-merge) for conditional classes.
+- Prefer utility classes over custom CSS.
+- Use `dark:` variants for theme support.
+
+## Code Style
+- TypeScript for type safety.
+- Functional over imperative logic.
+- Keep components small and focused.
