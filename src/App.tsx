@@ -59,6 +59,27 @@ function App() {
     }
   }, [currentPage, selectedPersonId])
 
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      let page: Page = 'dashboard';
+      if (path.includes('vacancy-create')) page = 'create-vacancy';
+      else if (path.includes('vacancy-card')) page = 'history';
+      else if (path.includes('vacancy') || path.includes('funnel')) page = 'funnel';
+      else if (path.includes('resume-bank-person')) page = 'person';
+      else if (path.includes('resume-bank')) page = 'bank';
+      else if (path.includes('resume')) page = 'resume';
+      
+      setCurrentPage(page);
+      
+      const params = new URLSearchParams(window.location.search);
+      setSelectedPersonId(params.get('personId') || null);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const navigate = (page: Page, personId?: string) => {
     if (personId) setSelectedPersonId(personId);
     setCurrentPage(page);
