@@ -30,7 +30,7 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({
       <div className="flex items-center gap-1">
         <DatePicker
           selected={start}
-          onChange={(date) => date && onStartChange(format(date, 'yyyy-MM-dd'))}
+          onChange={(date: Date | null) => date && onStartChange(format(date, 'yyyy-MM-dd'))}
           selectsStart
           startDate={start}
           endDate={end}
@@ -42,7 +42,7 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({
         <span className="text-text-muted dark:text-slate-500 text-xs">—</span>
         <DatePicker
           selected={end}
-          onChange={(date) => date && onEndChange(format(date, 'yyyy-MM-dd'))}
+          onChange={(date: Date | null) => date && onEndChange(format(date, 'yyyy-MM-dd'))}
           selectsEnd
           startDate={start}
           endDate={end}

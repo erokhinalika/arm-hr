@@ -113,9 +113,9 @@ export const Resume: React.FC<ResumeProps> = ({ onNavigate, uiState = 'normal' }
         </header>
 
         {/* AI Prompt Bar - Sticky below header */}
-        <div className="px-8 py-3 bg-primary-soft/30 dark:bg-primary/10 border-t border-primary/10 flex items-center gap-4">
-          <div className="flex items-center gap-2 text-primary dark:text-primary-soft font-semibold text-xs shrink-0">
-            <Sparkles size={14} />
+        <div className="px-8 py-4 bg-primary-soft/30 dark:bg-primary/10 border-t border-primary/10 flex items-center gap-5">
+          <div className="flex items-center gap-2 text-primary dark:text-primary-soft font-bold text-sm shrink-0">
+            <Sparkles size={16} />
             AI Адаптация
           </div>
           <div className="flex-1 relative">
@@ -124,27 +124,27 @@ export const Resume: React.FC<ResumeProps> = ({ onNavigate, uiState = 'normal' }
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Напиши, что нужно поправить в резюме..."
-              className="w-full bg-white dark:bg-[#1e293b] border border-primary/20 dark:border-primary/30 rounded-md px-3 py-1.5 text-xs outline-none focus:ring-2 focus:ring-primary/20 dark:text-slate-200 placeholder:text-text-muted/50 transition-all"
+              className="w-full bg-white dark:bg-[#1e293b] border border-primary/25 dark:border-primary/35 rounded-lg pl-4 pr-10 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary dark:text-slate-200 placeholder:text-text-muted/50 transition-all shadow-sm"
             />
             <button 
               onClick={handleRegenerate}
               disabled={!comment.trim() || isRegenerating}
-              className="absolute right-1.5 top-1/2 -translate-y-1/2 text-primary hover:text-primary-hover disabled:opacity-30"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-primary hover:text-primary-hover disabled:opacity-30 p-1 rounded-md transition-colors"
             >
-              <Zap size={14} fill="currentColor" />
+              <Zap size={16} fill="currentColor" />
             </button>
           </div>
-          <div className="flex items-center gap-2 ml-2 border-l border-primary/10 dark:border-primary/20 pl-4">
-            <span className="text-[10px] font-medium text-text-muted dark:text-slate-400 uppercase tracking-wider">Подсветка</span>
+          <div className="flex items-center gap-3 ml-2 border-l border-primary/15 dark:border-primary/25 pl-4">
+            <span className="text-xs font-semibold text-text-muted dark:text-slate-400 uppercase tracking-wider">Подсветка</span>
             <button 
               onClick={() => setShowHighlights(!showHighlights)}
               className={cn(
-                "w-8 h-4 rounded-full relative transition-colors duration-200",
+                "w-9 h-5 rounded-full relative transition-colors duration-200",
                 showHighlights ? "bg-primary" : "bg-slate-300 dark:bg-slate-700"
               )}
             >
               <div className={cn(
-                "absolute top-0.5 left-0.5 w-3 h-3 bg-white rounded-full transition-transform duration-200",
+                "absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform duration-200",
                 showHighlights ? "translate-x-4" : "translate-x-0"
               )} />
             </button>

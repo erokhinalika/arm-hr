@@ -8,7 +8,29 @@ import { Checkbox } from '../components/Checkbox';
 import { Skeleton, SkeletonText } from '../components/Skeleton';
 import { EmptyState } from '../components/EmptyState';
 import { VacancyHeader } from '../components/VacancyHeader';
-import { MoreHorizontal, UserPlus, Columns, Clock, CheckCircle2, FileText, History, Ban, RotateCcw, Download, Users } from 'lucide-react';
+import { Dropdown } from '../components/Dropdown';
+import { Toast, ToastType } from '../components/Toast';
+import { 
+  MoreHorizontal, 
+  UserPlus, 
+  Columns, 
+  Clock, 
+  CheckCircle2, 
+  FileText, 
+  History, 
+  Ban, 
+  RotateCcw, 
+  Download, 
+  Users,
+  RefreshCw,
+  Settings,
+  ArrowRight,
+  SortAsc,
+  Trash2,
+  Edit2,
+  EyeOff,
+  Lock
+} from 'lucide-react';
 import { cn } from '../utils/cn';
 
 interface FunnelProps {
@@ -20,6 +42,33 @@ export const Funnel: React.FC<FunnelProps> = ({ onNavigate, uiState = 'normal' }
   const [selectedCandidateId, setSelectedCandidateId] = useState<string | null>(null);
   const [isColumnDrawerOpen, setIsColumnDrawerOpen] = useState(false);
   const [visibleColumns, setVisibleColumns] = useState(MOCK_DATA.pipelineColumns.map(c => c.id).filter(id => id !== 'reject'));
+  const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null);
+
+  const showToast = (message: string, type: ToastType = 'success') => {
+    setToast({ message, type });
+  };
+
+  const getColumnActions = (colId: string) => {
+    if (colId === 'ai') {
+      return [
+        { label: 'Обновить подбор', icon: <RefreshCw size={14} />, onClick: () => showToast('Подбор обновлен') },
+        { label: 'Настроить AI', icon: <Settings size={14} />, onClick: () => showToast('Настройки AI открыты', 'info') },
+        { label: 'Перенести всех в «Ревью»', icon: <ArrowRight size={14} />, onClick: () => showToast('Кандидаты перемещены в Ревью') },
+        { label: 'Сортировать по оценке', icon: <SortAsc size={14} />, onClick: () => showToast('Сортировка применена') },
+        { label: 'Очистить колонку', icon: <Trash2 size={14} />, onClick: () => showToast('Колонка очищена', 'warning'), variant: 'danger' as const },
+      ];
+    }
+
+    return [
+      { label: 'Переименовать', icon: <Edit2 size={14} />, onClick: () => showToast('Переименование доступно в настройках', 'info') },
+      { label: 'Установить лимит (WIP)', icon: <Lock size={14} />, onClick: () => showToast('Лимит установлен', 'info') },
+      { label: 'Скрыть колонку', icon: <EyeOff size={14} />, onClick: () => {
+        setVisibleColumns(prev => prev.filter(id => id !== colId));
+        showToast('Колонка скрыта');
+      }},
+      { label: 'Очистить колонку', icon: <Trash2 size={14} />, onClick: () => showToast('Колонка очищена', 'warning'), variant: 'danger' as const },
+    ];
+  };
 
   const selectedCandidate = selectedCandidateId ? MOCK_DATA.candidates[selectedCandidateId as keyof typeof MOCK_DATA.candidates] : null;
 
@@ -127,9 +176,14 @@ export const Funnel: React.FC<FunnelProps> = ({ onNavigate, uiState = 'normal' }
                   {candidatesByColumn[col.id]?.length || 0}
                 </span>
               </div>
-              <button className="text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300">
-                <MoreHorizontal size={14} />
-              </button>
+              <Dropdown
+                trigger={
+                  <button className="text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300 p-1 rounded-md hover:bg-surface dark:hover:bg-slate-800 transition-colors">
+                    <MoreHorizontal size={14} />
+                  </button>
+                }
+                items={getColumnActions(col.id)}
+              />
             </div>
 
             <div className="flex-1 overflow-y-auto space-y-3 pr-1 custom-scrollbar">
@@ -324,6 +378,14 @@ export const Funnel: React.FC<FunnelProps> = ({ onNavigate, uiState = 'normal' }
           </div>
         </div>
       </Drawer>
+
+      {toast && (
+        <Toast 
+          message={toast.message} 
+          type={toast.type} 
+          onClose={() => setToast(null)} 
+        />
+      )}
     </div>
   );
 };

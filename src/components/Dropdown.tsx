@@ -49,7 +49,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       {isOpen && (
         <div 
           className={cn(
-            "absolute z-50 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-border dark:border-slate-700 py-1",
+            "absolute z-50 mt-2 w-64 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-border dark:border-slate-700 py-1",
             align === 'right' ? "right-0" : "left-0"
           )}
         >
@@ -62,14 +62,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   setIsOpen(false);
                 }}
                 className={cn(
-                  "flex items-center w-full px-4 py-2 text-sm transition-colors",
+                  "flex items-center text-left w-full px-4 py-2 text-sm transition-colors",
                   item.variant === 'danger' 
                     ? "text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-900/20" 
                     : "text-text dark:text-slate-200 hover:bg-surface dark:hover:bg-slate-700",
                 )}
               >
-                {item.icon && <span className="mr-3 text-text-muted dark:text-slate-400">{item.icon}</span>}
-                {item.label}
+                {item.icon && <span className="mr-3 flex-shrink-0 text-text-muted dark:text-slate-400">{item.icon}</span>}
+                <span className="truncate">{item.label}</span>
               </button>
             ))}
           </div>
