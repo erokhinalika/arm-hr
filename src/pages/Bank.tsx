@@ -80,9 +80,9 @@ export const Bank: React.FC<BankProps> = ({ onNavigate, uiState = 'normal' }) =>
   };
 
   const getLoadColor = (load: number) => {
-    if (load === 0) return 'bg-slate-200';
+    if (load === 0) return 'bg-slate-200 dark:bg-slate-800';
     if (load <= 100) return 'bg-primary';
-    return 'bg-rose-500';
+    return 'bg-rose-500 dark:bg-rose-400';
   };
 
   return (
@@ -94,7 +94,7 @@ export const Bank: React.FC<BankProps> = ({ onNavigate, uiState = 'normal' }) =>
           <div>
             <h1 className="text-xl font-bold text-text dark:text-slate-100">Банк резюме</h1>
             <p className="text-xs text-text-muted dark:text-slate-400">
-              <span className="font-semibold text-primary dark:text-primary-soft">{MOCK_DATA.bankKpi.total}</span> специалистов · {MOCK_DATA.bankKpi.free} свободны
+              <span className="font-semibold text-primary dark:text-indigo-400">{MOCK_DATA.bankKpi.total}</span> специалистов · {MOCK_DATA.bankKpi.free} свободны
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -259,7 +259,7 @@ export const Bank: React.FC<BankProps> = ({ onNavigate, uiState = 'normal' }) =>
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
-                            <div className="flex-1 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden min-w-[60px]">
+                            <div className="flex-1 h-1.5 bg-slate-100 dark:bg-slate-700/70 dark:ring-1 dark:ring-inset dark:ring-slate-600/40 rounded-full overflow-hidden min-w-[60px]">
                               <div 
                                 className={cn("h-full transition-all", getLoadColor(person.load))}
                                 style={{ width: `${Math.min(person.load, 100)}%` }}
@@ -369,11 +369,11 @@ export const Bank: React.FC<BankProps> = ({ onNavigate, uiState = 'normal' }) =>
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-3">
-                        <div className="w-24 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                          <div 
-                            className={cn("h-full transition-all", getLoadColor(person.load))}
-                            style={{ width: `${Math.min(person.load, 100)}%` }}
-                          />
+                        <div className="w-24 h-1.5 bg-slate-100 dark:bg-slate-700/70 dark:ring-1 dark:ring-inset dark:ring-slate-600/40 rounded-full overflow-hidden">
+                              <div 
+                                className={cn("h-full transition-all", getLoadColor(person.load))}
+                                style={{ width: `${Math.min(person.load, 100)}%` }}
+                              />
                         </div>
                         <span className="text-xs font-bold dark:text-slate-300">{person.load}%</span>
                       </div>

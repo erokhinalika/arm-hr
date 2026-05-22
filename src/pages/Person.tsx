@@ -240,14 +240,14 @@ const Person: React.FC<PersonProps> = ({ id, onBack, uiState = 'normal' }) => {
                     </div>
                   </div>
 
-                  <div className="h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-slate-100 dark:bg-slate-700/70 dark:ring-1 dark:ring-inset dark:ring-slate-600/40 rounded-full overflow-hidden">
                     {uiState === 'loading' ? (
                       <Skeleton className="h-full w-full" />
                     ) : (
                       <div 
                         className={cn(
                           "h-full transition-all",
-                          person?.load === 0 ? "bg-slate-200" : person?.load && person.load <= 100 ? "bg-primary" : "bg-rose-500"
+                          person?.load === 0 ? "bg-slate-200 dark:bg-slate-800" : person?.load && person.load <= 100 ? "bg-primary" : "bg-rose-500 dark:bg-rose-400"
                         )}
                         style={{ width: `${Math.min(person?.load || 0, 100)}%` }}
                       />

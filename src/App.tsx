@@ -91,7 +91,7 @@ function App() {
       className={cn(
         "flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium transition-colors w-full text-left",
         currentPage === id 
-          ? "bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-dark" 
+          ? "bg-primary/10 text-primary dark:bg-primary/15" 
           : "text-text-muted dark:text-slate-400 hover:bg-surface dark:hover:bg-slate-800 hover:text-text dark:hover:text-slate-100"
       )}
     >

@@ -95,7 +95,7 @@ export const Funnel: React.FC<FunnelProps> = ({ onNavigate, uiState = 'normal' }
         {candidate.score > 0 && (
           <span className={cn(
             "text-[13px] font-bold tabular-nums",
-            candidate.score >= 80 ? "text-primary dark:text-primary-soft" : "text-text-muted dark:text-slate-400"
+            candidate.score >= 80 ? "text-primary dark:text-indigo-300" : "text-text-muted dark:text-slate-400"
           )}>
             {candidate.score}%
           </span>
@@ -297,7 +297,7 @@ export const Funnel: React.FC<FunnelProps> = ({ onNavigate, uiState = 'normal' }
             <div className="bg-surface dark:bg-slate-800/50 rounded-lg p-4 space-y-3 border border-border dark:border-slate-700">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold text-text dark:text-slate-300 uppercase tracking-wider">Соответствие AI</span>
-                <span className="text-lg font-bold text-primary dark:text-primary-soft tabular-nums">{selectedCandidate.score}%</span>
+                <span className="text-lg font-bold text-primary dark:text-indigo-300 tabular-nums">{selectedCandidate.score}%</span>
               </div>
               <ul className="space-y-2">
                 {selectedCandidate.reasons?.map((r: string) => (
@@ -333,7 +333,7 @@ export const Funnel: React.FC<FunnelProps> = ({ onNavigate, uiState = 'normal' }
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-xs font-bold text-text dark:text-slate-300 uppercase tracking-wider">Последние шаги</h3>
-                <button className="text-[11px] text-primary dark:text-primary-soft font-semibold hover:underline">Вся история →</button>
+                <button className="text-[11px] text-primary dark:text-indigo-400 font-semibold hover:underline">Вся история →</button>
               </div>
               <ul className="space-y-3">
                 {selectedCandidate.activity?.map((a: any, i: number) => (

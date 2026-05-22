@@ -51,7 +51,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate, uiState = 'nor
           <div>
             <h1 className="text-xl font-bold text-text dark:text-slate-100">Вакансии</h1>
             <p className="text-xs text-text-muted dark:text-slate-400">
-              <span className="font-semibold text-primary dark:text-primary-soft">{MOCK_DATA.kpi.open}</span> открытых · {MOCK_DATA.kpi.queueToday} задач до конца дня
+              <span className="font-semibold text-primary dark:text-indigo-400">{MOCK_DATA.kpi.open}</span> открытых · {MOCK_DATA.kpi.queueToday} задач до конца дня
             </p>
           </div>
           <Button size="sm" className="gap-2" onClick={() => onNavigate('create-vacancy')}>

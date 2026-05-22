@@ -114,7 +114,7 @@ export const Resume: React.FC<ResumeProps> = ({ onNavigate, uiState = 'normal' }
 
         {/* AI Prompt Bar - Sticky below header */}
         <div className="px-8 py-3.5 border-t border-border dark:border-slate-800 flex items-center gap-5">
-          <div className="flex items-center gap-2 text-primary dark:text-primary-soft font-bold text-sm shrink-0">
+          <div className="flex items-center gap-2 text-primary dark:text-indigo-300 font-bold text-sm shrink-0">
             <Sparkles size={16} />
             AI Адаптация
           </div>

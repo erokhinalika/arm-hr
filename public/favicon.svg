@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    
+    <!-- Icon Elements Gradient (Pure White to soft lavender/blue) -->
+    <linearGradient id="icon-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e0e7ff" />
+    </linearGradient>
+    
+    <!-- Shadow for Depth -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Background -->
+  <rect width="512" height="512" rx="144" fill="url(#bg-grad)" />
+
+  <!-- Subtly Glowing Background Accent Circle -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#ffffff" stroke-width="4" stroke-opacity="0.1" />
+
+  <!-- Monogram Logo "HR" -->
+  <g filter="url(#shadow)">
+    <!-- --- LETTER H --- -->
+    <!-- Left Stem -->
+    <rect x="110" y="140" width="48" height="232" rx="24" fill="url(#icon-grad)" />
+    
+    <!-- Right Stem -->
+    <rect x="214" y="140" width="48" height="232" rx="24" fill="url(#icon-grad)" />
+    
+    <!-- Crossbar -->
+    <rect x="146" y="232" width="80" height="48" rx="8" fill="url(#icon-grad)" />
+
+    <!-- --- LETTER R --- -->
+    <!-- Vertical Stem -->
+    <rect x="302" y="140" width="48" height="232" rx="24" fill="url(#icon-grad)" />
+    
+    <!-- Loop and Leg -->
+    <path d="M 326,164 H 360 A 46,46 0 0,1 360,256 H 326 M 346,250 L 390,352" 
+          fill="none" 
+          stroke="url(#icon-grad)" 
+          stroke-width="48" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+  </g>
+
+  <!-- Glowing Tech / Spark Accent in Top-Right -->
+  <g transform="translate(395, 125)">
+    <!-- Soft Background Glow -->
+    <circle cx="0" cy="0" r="20" fill="#2dd4bf" opacity="0.4" filter="blur(6px)" />
+    <!-- Core Spark Geometry -->
+    <path d="M 0,-14 Q 0,0 -14,0 Q 0,0 0,14 Q 0,0 14,0 Q 0,0 0,-14 Z" fill="#2dd4bf" />
+  </g>
+</svg>

@@ -9,10 +9,10 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#7c3aed', // Royal Violet (Violet 600)
-          hover: '#6d28d9', // Deep Violet (Violet 700)
-          soft: '#f5f3ff', // Very Light Violet (Violet 50)
-          dark: '#a78bfa', // Lighter Violet for dark mode (Violet 400)
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          hover: 'rgb(var(--color-primary-hover) / <alpha-value>)',
+          soft: 'rgb(var(--color-primary-soft) / <alpha-value>)',
+          dark: '#818cf8', // Indigo 400 — lighter accent for dark mode text
         },
         secondary: {
           DEFAULT: '#475569', // Slate 600

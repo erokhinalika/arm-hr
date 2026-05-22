@@ -4,6 +4,15 @@
 
 :root {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --color-primary: 79 70 229;       /* Royal Indigo (#4f46e5) */
+  --color-primary-hover: 67 56 202; /* Darker Indigo (#4338ca) */
+  --color-primary-soft: 224 231 255;  /* Light Indigo Background (#e0e7ff) */
+}
+
+.dark {
+  --color-primary: 99 102 241;       /* Vibrant Indigo (#6366f1) */
+  --color-primary-hover: 79 70 229; /* Slightly Darker Indigo (#4f46e5) */
+  --color-primary-soft: 30 27 75;  /* Deep Indigo-Slate Background (#1e1b4b) */
 }
 
 body {
@@ -132,7 +141,7 @@ body {
 }
 
 .react-datepicker__day--keyboard-selected {
-  @apply !bg-primary/20 !text-primary !rounded-md;
+  @apply !bg-primary-soft !text-primary !rounded-md;
 }
 
 .react-datepicker__day--outside-month {

@@ -14,7 +14,7 @@ export const Chip: React.FC<ChipProps> = ({ label, onRemove, className, active }
     <div
       className={cn(
         'inline-flex items-center gap-1 rounded-md border border-border dark:border-slate-700 bg-surface dark:bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-text-muted dark:text-slate-400 transition-colors',
-        active && 'border-primary bg-primary-soft dark:bg-primary/20 text-primary dark:text-primary-dark',
+        active && 'border-primary bg-primary-soft dark:bg-primary/15 text-primary',
         className
       )}
     >

@@ -176,11 +176,11 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
                   )}
                 >
                   <div className="absolute top-1 right-1">
-                    <Badge variant="info" className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-soft border-0 text-[9px] py-0 px-1">AI</Badge>
+                    <Badge variant="info" className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-indigo-300 border-0 text-[9px] py-0 px-1">AI</Badge>
                   </div>
                   <div className={cn(
                     "w-12 h-12 rounded-full flex items-center justify-center transition-colors",
-                    inputMethod === 'generate' ? "bg-primary text-white" : "bg-primary-soft dark:bg-primary/20 text-primary dark:text-primary-soft group-hover:text-primary group-hover:bg-white dark:group-hover:bg-slate-700"
+                    inputMethod === 'generate' ? "bg-primary text-white" : "bg-primary-soft dark:bg-primary/20 text-primary dark:text-indigo-300 group-hover:text-primary group-hover:bg-white dark:group-hover:bg-slate-700"
                   )}>
                     <Sparkles size={24} />
                   </div>
@@ -201,7 +201,7 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
                     placeholder="Вставьте описание вакансии здесь..."
                     className="w-full h-40 bg-white dark:bg-[#1e293b] border border-border dark:border-slate-700 rounded-lg px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 dark:text-slate-200 transition-all resize-none"
                   />
-                  <div className="flex items-center gap-2 text-[10px] text-primary dark:text-primary-soft font-medium">
+                  <div className="flex items-center gap-2 text-[10px] text-primary dark:text-indigo-300 font-medium">
                     <Sparkles size={12} />
                     AI проанализирует текст и заполнит параметры на следующем шаге
                   </div>
@@ -303,7 +303,7 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
               <div className="space-y-6 bg-white dark:bg-[#1e293b] p-6 rounded-xl border border-border dark:border-slate-700 shadow-sm transition-colors duration-300">
                 {/* Требования */}
                 <div className="space-y-6">
-                  <h3 className="text-xs font-bold text-primary dark:text-primary-soft uppercase tracking-widest border-b border-border dark:border-slate-800 pb-2">Требования</h3>
+                  <h3 className="text-xs font-bold text-primary dark:text-indigo-300 uppercase tracking-widest border-b border-border dark:border-slate-800 pb-2">Требования</h3>
                   
                   <div className="space-y-3">
                     <label className="text-xs font-bold text-text dark:text-slate-400 uppercase tracking-wider flex items-center justify-between">
@@ -339,7 +339,7 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
                       ) : (
                         <button 
                           onClick={() => setIsAddingSkill(true)} 
-                          className="text-[11px] text-primary dark:text-primary-soft font-bold px-2 py-0.5 hover:bg-primary/5 rounded transition-colors flex items-center gap-1"
+                          className="text-[11px] text-primary dark:text-indigo-300 font-bold px-2 py-0.5 hover:bg-primary/5 rounded transition-colors flex items-center gap-1"
                         >
                           <PlusCircle size={12} />
                           Добавить
@@ -356,7 +356,7 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
                           <button 
                             key={g} 
                             onClick={() => handleRadioChange('grade', g)}
-                            className={cn("flex-1 py-1.5 text-[11px] font-bold rounded transition-all", formData.grade === g ? "bg-white dark:bg-slate-700 shadow-sm text-primary dark:text-primary-soft" : "text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300")}
+                            className={cn("flex-1 py-1.5 text-[11px] font-bold rounded transition-all", formData.grade === g ? "bg-white dark:bg-slate-700 shadow-sm text-primary dark:text-indigo-300" : "text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300")}
                           >
                             {g}
                           </button>
@@ -370,7 +370,7 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
                           <button 
                             key={exp} 
                             onClick={() => handleRadioChange('experience', exp)}
-                            className={cn("flex-1 py-1.5 text-[11px] font-bold rounded transition-all", formData.experience === exp ? "bg-white dark:bg-slate-700 shadow-sm text-primary dark:text-primary-soft" : "text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300")}
+                            className={cn("flex-1 py-1.5 text-[11px] font-bold rounded transition-all", formData.experience === exp ? "bg-white dark:bg-slate-700 shadow-sm text-primary dark:text-indigo-300" : "text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300")}
                           >
                             {exp}
                           </button>
@@ -419,7 +419,7 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
 
                 {/* Условия и сроки */}
                 <div className="space-y-6 pt-2">
-                  <h3 className="text-xs font-bold text-primary dark:text-primary-soft uppercase tracking-widest border-b border-border dark:border-slate-800 pb-2">Условия и сроки</h3>
+                  <h3 className="text-xs font-bold text-primary dark:text-indigo-300 uppercase tracking-widest border-b border-border dark:border-slate-800 pb-2">Условия и сроки</h3>
                   
                   <div className="grid grid-cols-2 gap-6">
                     <div className="space-y-1.5">
@@ -429,7 +429,7 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
                           <button 
                             key={d} 
                             onClick={() => handleRadioChange('startDate', d)}
-                            className={cn("flex-1 py-1.5 text-[11px] font-bold rounded transition-all", formData.startDate === d ? "bg-white dark:bg-slate-700 shadow-sm text-primary dark:text-primary-soft" : "text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300")}
+                            className={cn("flex-1 py-1.5 text-[11px] font-bold rounded transition-all", formData.startDate === d ? "bg-white dark:bg-slate-700 shadow-sm text-primary dark:text-indigo-300" : "text-text-muted dark:text-slate-500 hover:text-text dark:hover:text-slate-300")}
                           >
                             {d}
                           </button>
@@ -534,8 +534,8 @@ export const VacancyCreate: React.FC<{ onCancel: () => void }> = ({ onCancel }) 
               </div>
 
               <div className="p-4 bg-primary-soft dark:bg-primary/10 border border-primary/20 dark:border-primary/30 rounded-lg flex gap-3 transition-colors duration-300">
-                <Info size={18} className="text-primary dark:text-primary-soft shrink-0 mt-0.5" />
-                <p className="text-xs text-primary dark:text-primary-soft/80 leading-relaxed">
+                <Info size={18} className="text-primary dark:text-indigo-300 shrink-0 mt-0.5" />
+                <p className="text-xs text-primary dark:text-indigo-300/80 leading-relaxed">
                   После публикации AI начнёт автоматический поиск кандидатов в базе и на внешних ресурсах. Первые результаты появятся через 2-3 минуты.
                 </p>
               </div>
