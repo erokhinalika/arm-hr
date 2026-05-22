@@ -9,10 +9,10 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#ea580c', // Mid-Deep Orange (Orange 600)
-          hover: '#c2410c', // Deep Orange (Orange 700)
-          soft: '#fff7ed', // Very Light Orange (Orange 50)
-          dark: '#fb923c', // Lighter Orange for dark mode (Orange 400)
+          DEFAULT: '#7c3aed', // Royal Violet (Violet 600)
+          hover: '#6d28d9', // Deep Violet (Violet 700)
+          soft: '#f5f3ff', // Very Light Violet (Violet 50)
+          dark: '#a78bfa', // Lighter Violet for dark mode (Violet 400)
         },
         secondary: {
           DEFAULT: '#475569', // Slate 600
