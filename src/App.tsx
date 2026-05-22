@@ -15,8 +15,21 @@ type Page = 'dashboard' | 'funnel' | 'resume' | 'bank' | 'create-vacancy' | 'his
 type UIState = 'normal' | 'loading' | 'empty'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('dashboard')
-  const [selectedPersonId, setSelectedPersonId] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState<Page>(() => {
+    const path = window.location.pathname;
+    if (path.includes('vacancy-create')) return 'create-vacancy';
+    if (path.includes('vacancy-card')) return 'history';
+    if (path.includes('vacancy') || path.includes('funnel')) return 'funnel';
+    if (path.includes('resume-bank-person')) return 'person';
+    if (path.includes('resume-bank')) return 'bank';
+    if (path.includes('resume')) return 'resume';
+    return 'dashboard';
+  })
+  
+  const [selectedPersonId, setSelectedPersonId] = useState<string | null>(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('personId') || null;
+  })
   const [isDark, setIsDark] = useState(false)
   const [uiState, setUiState] = useState<UIState>('normal')
 
@@ -28,6 +41,23 @@ function App() {
       document.documentElement.classList.remove('dark')
     }
   }, [isDark])
+
+  useEffect(() => {
+    let path = '/';
+    if (currentPage === 'create-vacancy') path = '/vacancy-create-1.html';
+    else if (currentPage === 'funnel') path = '/vacancy.html';
+    else if (currentPage === 'history') path = '/vacancy-card.html';
+    else if (currentPage === 'resume') path = '/resume.html';
+    else if (currentPage === 'bank') path = '/resume-bank.html';
+    else if (currentPage === 'person') {
+      path = `/resume-bank-person.html${selectedPersonId ? `?personId=${selectedPersonId}` : ''}`;
+    }
+    else path = '/dashboard.html';
+
+    if (window.location.pathname + window.location.search !== path) {
+      window.history.pushState(null, '', path);
+    }
+  }, [currentPage, selectedPersonId])
 
   const navigate = (page: Page, personId?: string) => {
     if (personId) setSelectedPersonId(personId);
