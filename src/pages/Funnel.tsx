@@ -315,7 +315,7 @@ export const Funnel: React.FC<FunnelProps> = ({ onNavigate, uiState = 'normal' }
               <div className="grid grid-cols-2 gap-y-4 gap-x-2">
                 <div className="space-y-1">
                   <span className="text-[11px] text-text-muted dark:text-slate-500 font-medium">Доступность</span>
-                  <p className="text-xs text-text dark:text-slate-200 font-medium whitespace-nowrap">{selectedCandidate.availability}</p>
+                  <p className="text-xs text-text dark:text-slate-200 font-medium">{selectedCandidate.availability}</p>
                 </div>
                 <div className="space-y-1">
                   <span className="text-[11px] text-text-muted dark:text-slate-500 font-medium">Английский</span>
